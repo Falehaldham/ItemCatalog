@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+{% block title %}Add New Manga{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+<div>
+<form class="inputform" action="#" method = "post">
+		<h3>Add new Manga</h3>
+	<div >
+		<label for="mtitle">Manga Title</label><br>
+		<input id="mtitle" class="input" type="text" name="name" placeholder="Name">
+		<br>
+	</div>
+	<div >
+		<label for="desc">Description</label><br>
+		<textarea id="desc" class="input" name="description" placeholder="Description"></textarea>
+		<br>
+	</div>
+	<div >
+		<label for="cat">Category</label><br>
+		<select id="cat" name="mangaCategory_id">
+			<option value="{{manga_cat}}" selected>{{manga_cat}}</option>
+			{% for cat in manga_categories%}
+				{% if cat.name != manga_cat %}
+			    	<option value="{{cat.name}}" >{{cat.name}}</option>
+			    {% endif %}
+			{% endfor %}
+	  	</select>
+	  	<br>
+	</div>
+	<div>
+	<div>
+		{% if 'username' not in login_session %}
+		<button class="button-save" name="submit_button" value="add" disabled>Add</button>
+		<button class="button-cancel" name="submit_button" value="cancel" disabled>Cancel</button>
+		{% else %}
+		<button class="button-save" name="submit_button" value="add" >Add</button>
+		<button class="button-cancel" name="submit_button" value="cancel" >Cancel</button>
+		{% endif %}
+	</div>
+	</div>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+
+{% extends "main.html" %}
+{% block title %}My Favorite Manga{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+<div><h3>Latest Items</h3>
+		{% for recent_manga in recent_manag_items %}
+		{% for manga in manga_categories %}
+		{% if manga.id == recent_manga.mangaCategory_id %}
+		<h3><a href="{{url_for('manga_item_desc', manga_cat= manga.name, manga_item= recent_manga.name)}}">{{'{} - {}'.format(recent_manga.name, manga.name) }}</a></h3>
+		{% endif %}
+		{% endfor %}
+		{% endfor %}
+</div>
+{% endblock %}

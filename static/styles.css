@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: 'Titillium Web', sans-serif;
+  margin: 0;
+  color: #505050;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #F2F2F2;
+  border-bottom: 1px solid #8C9393;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+
+
+/*site title*/
+.site_title a{
+  color: #505050;
+  text-shadow: 2px 2px 0px rgba(185,185,185,0.51);
+}
+.site_title {
+  vertical-align: middle;
+  display: inline-flex;
+}
+
+.site_title a:visited{
+  color: #505050;
+
+}
+
+/*Login*/
+.login{
+  vertical-align: middle;
+  float: right;
+  text-align: left;
+}
+
+li {
+    list-style: none;
+}
+
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+  height: 90vh;
+}
+
+a {
+  color: #505050;
+}
+
+a:visited {
+  color: #B8B8B8;
+
+}
+
+a:hover {
+  color: #8C9393;
+}
+
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: #F5F5F5;
+  padding: 20px;
+  height: 90vh;
+}
+
+#overlapthis {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 1;
+    width: 320px
+}
+
+#fixedtext{
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  z-index: 1;
+}
+
+.button-save,
+.button-delete,
+.button-cancel{
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.button-save:disabled,
+.button-delete:disabled,
+.button-cancel:disabled{
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    opacity: 0.3; 
+    cursor: not-allowed;
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
+.button-save {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+.button-delete{
+  background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-cancel{
+  background: #B8B8B8; /* this is a maroon */
+}
+
+
+input[type=text], select, textarea, option {
+  width: 30%;
+  padding: 12px;
+  border: 1px solid #D0D0D0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+
+textarea {
+  height: 150px;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.login_icon {
+  vertical-align: middle;
+  margin-right: 5px;
+  height: 40px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 1px;
+  display: inline-flex;
+}
+
+.login a {
+  float: right ;
+}
+
+.creator{
+  font-size: 12px;
+}
+
+.creator_pic{
+  vertical-align: middle;
+  margin-right: 5px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 1px;
+  display: inline-flex;
+}

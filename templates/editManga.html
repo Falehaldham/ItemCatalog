@@ -1,0 +1,41 @@
+{% extends "main.html" %}
+{% block title %}Edit {{manga_item.name}}{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+<div>
+<form class="inputform" action="#" method = "post">
+	<h3>Edit Manga</h3>
+	<div >
+		<label for="mtitle">Manga Title</label><br>
+		<input id="mtitle" class="input" type="text" name="name" placeholder="{{manga_item.name}}">
+		<br>
+	</div>
+	<div >
+		<label for="desc">Description</label><br>
+		<textarea id="desc" class="input" name="description" placeholder="{{manga_item.description}}"></textarea>
+		<br>
+	</div>
+	<div >
+		<label for="cat">Category</label><br>
+		<select id="mangaCategory_id" name="mangaCategory_id">
+			<option value="{{manga_cat}}" selected>{{manga_cat}}</option>
+			{% for cat in manga_categories%}
+				{% if cat.name != manga_cat %}
+			    	<option value="{{cat.name}}" >{{cat.name}}</option>
+			    {% endif %}
+			{% endfor %}
+	  	</select>
+	  	<br>
+	</div>
+	<div>
+		<button class="button-save" name="submit_button" value="edit">Edit</button>
+		<button class="button-cancel" name="submit_button" value="cancel">Cancel</button>
+	</div>
+</form>
+</div>
+{% endblock %}

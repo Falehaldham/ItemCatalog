@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block title %}Description of {{manga_item.name}}{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+<div>
+	<h3>{{'{}'.format(manga_item.name) }}</h3>
+	<p>{{'{}'.format(manga_item.description) }}
+	
+
+	<div>
+		{% if 'username' not in login_session or manga_item.user_id != creator.id %}
+		<a href="{{url_for('manga_item_edit', manga_cat = manga_cat, manga_item = manga_item.name)}}"><button class="button-save" disabled>Edit</button></a>
+		<a href="{{url_for('manga_item_delete', manga_cat = manga_cat, manga_item = manga_item.name)}}"><button class="button-cancel" disabled>Delete</button></a>
+		{% else %}
+		<a href="{{url_for('manga_item_edit', manga_cat = manga_cat, manga_item = manga_item.name)}}"><button class="button-save">Edit</button></a>
+		<a href="{{url_for('manga_item_delete', manga_cat = manga_cat, manga_item = manga_item.name)}}"><button class="button-cancel">Delete</button></a>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

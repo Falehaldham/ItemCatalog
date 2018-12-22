@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+{% block title %}My Favorite Manga{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+
+<div>
+	<h3>{{'{} Items - {} items'.format(selected_manga_category, manag_items|length) }}
+	{% if 'username' not in login_session %}
+	<a href="{{url_for('new_manga')}}"><button class="button-save" disabled>Add new Manga</button></a></h3>
+	{% else %}
+	<a href="{{url_for('new_manga')}}"><button class="button-save">Add new Manga</button></a></h3>
+	{% endif %}
+	{% for manga in manag_items %}
+
+	<h4><a href="{{url_for('manga_item_desc', manga_cat= selected_manga_category, manga_item= manga.name)}}">{{'{}'.format(manga.name) }}</a> <span class="creator">- Created by <img src="{{creators[manga.user_id].picture}}" class="creator_pic">{{creators[manga.user_id].name}}</span></h4>
+
+	{% endfor %}
+</div>
+{% endblock %}

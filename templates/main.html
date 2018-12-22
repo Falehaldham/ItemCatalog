@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  
+
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+  <header class="navbar">
+
+  <div class="site_title"><h2><a  href="{{url_for('manga')}}">My Favorite Manga</a></h2></div>
+  <div class="login">
+    <ul >
+      {% if login_session.get('access_token') %}
+      
+      <li><img src="{{login_session.get('picture')}}" class="login_icon"> Hi {{login_session['username']}}!! <a href="/gdisconnect">Logout? </a></li>
+      {% else %}
+        <li><img src="/static/face-profile.png" class="login_icon"><a href="/login">Login</a></li>
+      {% endif %}
+<!--       <li ><a href="{{url_for('showLogin')}}">Log In</a></li>
+ -->    </ul>
+  </div>
+</header>
+
+<div class="row">
+  <div class="side">
+    <h3>Manga Category</h3>
+      {% for cat in manga_categories %}
+      <h4><a href="{{url_for('manga_category', manga_cat= cat.name)}}">{{cat.name}}</a></h4>
+      {% endfor %}
+  </div>
+  
+  <div class="main">
+    <div class="column">{% block content %}{% endblock %}</div>
+  </div>
+  <div id="fixedtext"><h5><a href="{{url_for('mangaJSON')}}">Manga APIs</a></h5></div>
+  <img src="{{ url_for('static', filename='img.png') }}" id="overlapthis">
+</div>
+</body>
+</html>
